@@ -23,6 +23,10 @@
         <property name="logger" value="foobar" />
     </bean>
 
+    <bean id="integrationMBeanExporter" class="org.springframework.integration.monitor.IntegrationMBeanExporter">
+
+    </bean>
+
     <int:service-activator input-channel="output" ref="throughputMessageHandler"/>
 
 </beans>
