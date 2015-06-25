@@ -23,13 +23,13 @@ import org.springframework.integration.monitor.IntegrationMBeanExporter;
 @ImportResource("/integration.xml")
 @EnableAutoConfiguration(exclude = {JmxAutoConfiguration.class, IntegrationAutoConfiguration.class})
 public class Application {
-	
+
 	@Autowired
 	RedisConnectionFactory connectionFactory;
-	
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(Application.class);
-    }
+
+	public static void main(String[] args) throws Exception {
+		SpringApplication.run(Application.class);
+	}
 
 	@Bean
 	@ExportMetricWriter
@@ -38,11 +38,11 @@ public class Application {
 				export.getRedis().getPrefix(), export.getRedis().getKey());
 	}
 
-	@Bean
-	@ExportMetricReader
-	public SpringIntegrationMetricReader springIntegrationMetricReader(
-			IntegrationMBeanExporter exporter) {
-		return new SpringIntegrationMetricReader(exporter);
-	}
+//	@Bean
+//	@ExportMetricReader
+//	public SpringIntegrationMetricReader springIntegrationMetricReader(
+//			IntegrationMBeanExporter exporter) {
+//		return new SpringIntegrationMetricReader(exporter);
+//	}
 
 }
